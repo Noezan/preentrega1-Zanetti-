@@ -13,6 +13,7 @@ let precio;
 let total = 0;
 let cantidad;
 let continuar;
+let descuento;
 
 function validacion(cantidad) {
     while(cantidad == 0) {
@@ -22,12 +23,11 @@ function validacion(cantidad) {
 }
 
 function cargaProducto() {
-    nombreProducto = prompt('Ingrese nombre del producto: Bikini, conjunto o bombacha');
-    precio = +prompt('Ingrese precio:');
+    nombreProducto = prompt('Ingrese nombre del producto: Bikini ($500), conjunto ($400) o bombacha ($250)');
+    precio = +prompt('Ingrese precio: $');
     cantidad = +prompt('Ingrese cantidad:');
-    validacion();
+    validacion(cantidad);
 }
-
 
 
 bienvenida = alert('Bienvenido al carrito de compras de Joaquina Lenceria!!')
@@ -38,6 +38,9 @@ do {
         continuar = prompt('Respuesta inválida, vuelve a ingresarla, si/no:');
         }
         total = total + precio * cantidad;
+        while(total >= 2000) {
+            total = total * 0.90;
+        }
     }while(continuar == SI);
 
-alert('El total de su compra es: ' + (total))
+alert('El total de su compra es: ' +(total))
